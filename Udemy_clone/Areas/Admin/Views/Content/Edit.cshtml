@@ -1,0 +1,57 @@
+﻿@model Video
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="VideoId" hidden />
+    <input asp-for="Thumbnail" hidden />
+    <input asp-for="VideoUrl" hidden />
+
+    <div class="border mt-4 p-3">
+        <h2 class="text-primary">Edit Video</h2>
+        <hr />
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Title" class="text-primary"></label>
+        <input asp-for="Title" type="text" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="text-primary"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="text-primary"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="Duration" class="text-primary"></label>
+        <input asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <span class="text-danger">Please upload a thumbnail.</span>
+
+        <input type="file" name="Imgfile" class="form-control" />
+        <label asp-for="Thumbnail" class="text-primary"></label>
+    </div>
+    <div class="mb-3">
+        <span class="text-danger">Please upload a video file.</span>
+
+        <input type="file" name="Vidfile" class="form-control" />
+        <label asp-for="VideoUrl" class="text-primary"></label>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a class="btn btn-secondary" asp-controller="Content" asp-action="Index">Back to list</a>
+
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
